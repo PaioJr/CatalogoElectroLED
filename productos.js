@@ -250,4 +250,4 @@ const productos = [
         precio: 15000,
         imagen: "https://URL-DE-TU-FOTO.jpg"
     }
-];];
+];
