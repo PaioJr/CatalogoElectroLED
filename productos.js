@@ -1,9 +1,23 @@
 const productos = [
     {
-        nombre: "Cinta LED Neón Flex por metro",
-        categoria: "Iluminación",
+        nombre: "Led NEON Flex Fucsia por metro",
+        categoria: "Cintas y Neón",
         precio: "3500",
         imagen: "https://i.postimg.cc/7YMDWPXb/manguera-led-neon-fucsia-01-copia-8d911060a3b556341717539973845420-1024-1024.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+    {
+        nombre: "Led NEON Flex Naranja por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/tCbrsjPH/D-NQ-NP-2X-936947-MLA90360150512-082025-F.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+    {
+        nombre: "Led NEON Flex Verde por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/8z9MrR3d/teve-n05m-placa-meli-05-copia-90fd7cc114b565f85017539973845461-1024-1024.webp", 
         descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
     },
     {
@@ -153,6 +167,41 @@ const productos = [
         descripcion: "Timbre con cámara de video inalámbrica admite WiFi de 2,4G, trabaja con la App Smart Life, tiene alta resolución de 480P, que le presenta imágenes y videos más claros y más detalles. Cuenta con audio bidireccional, con micrófono incorporado, que le permite hablar y ver a sus visitantes en cualquier momento y en cualquier lugar.",
         precio: 42000,
         imagen: "https://i.postimg.cc/sg5Rsvf5/191651422368d1e570614699-81010179-4b1c9c7720e1c9008017734073846934-1024-1024.webp"
+    },
+{
+        nombre: "Led NEON Flex Amarillo por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/yY5kfVPk/manguera-led-neon-amarilla-02-d53914b8def49e25ca17539973843679-1024-1024.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+{
+        nombre: "Led NEON Flex Azul por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/0NZvBnst/manguera-led-neon-azul-01-1-838785380dbc2e1d8017539973849155-1024-1024.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+{
+        nombre: "Led NEON Flex Rojo por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/g2HrGvpm/manguera-led-neon-rojo-01-1-17d7bdea512493266f17539973848554-1024-1024.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+{
+        nombre: "Led NEON Flex Violeta por metro",
+        categoria: "Cintas y Neón",
+        precio: "3500",
+        imagen: "https://i.postimg.cc/ZKj1ZRgk/D-NQ-NP-2X-973878-MLA90049462114-082025-F.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
+    },
+{
+        nombre: "Led NEON Flex RGB por metro",
+        categoria: "Cintas y Neón",
+        precio: "14500",
+        imagen: "https://i.postimg.cc/zvz0PwqG/D-NQ-NP-2X-820961-MLA99988659909-112025-F.webp", 
+        descripcion: "Ideal para decoración y carteles. Varios colores disponibles."
     },
 {
         nombre: "NOMBRE DEL PRODUCTO",
