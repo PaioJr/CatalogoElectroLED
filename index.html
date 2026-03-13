@@ -26,10 +26,49 @@
 <script>
     const contenedor = document.getElementById('catalogo');
     const inputBuscador = document.getElementById('buscador');
+    
+    // NUEVO: La memoria de nuestro carrito
+    let carrito = []; 
+
+    // Función mágica para sacarle los tildes
+    function quitarAcentos(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    // NUEVO: Función para sumar al pedido
+    function agregarAlCarrito(nombre, precio) {
+        carrito.push({ nombre, precio });
+        actualizarBotonCarrito();      
+    }
+
+    // NUEVO: Función que arma el mensaje de WhatsApp
+    function actualizarBotonCarrito() {
+        const btn = document.getElementById('btn-carrito');
+        
+        if (carrito.length > 0) {
+            let total = 0;
+            let textoMensaje = "Hola Pablo! Quiero hacer este pedido de Electro LED:%0A%0A";
+            
+            // Recorremos lo que eligió y lo sumamos
+            carrito.forEach(item => {
+                total += item.precio;
+                textoMensaje += `- ${item.nombre} ($${item.precio})%0A`;
+            });
+            
+            textoMensaje += `%0A*Total estimado: $${total}*%0A%0A¿Tenés stock para coordinar?`;
+            
+            // Actualizamos el botón visualmente
+            btn.innerHTML = `🛒 Enviar Pedido (${carrito.length}) - $${total}`;
+            btn.href = `https://wa.me/5492645725220?text=${textoMensaje}`;
+            btn.classList.remove('hidden'); // Lo hacemos aparecer
+        } else {
+            btn.classList.add('hidden'); // Lo ocultamos si está vacío
+        }
+    }
 
     // Función para dibujar los productos
     function mostrarProductos(lista) {
-        contenedor.innerHTML = ''; // Limpiar antes de mostrar
+        contenedor.innerHTML = ''; 
         
         if(lista.length === 0) {
             contenedor.innerHTML = '<p class="text-center col-span-3 text-gray-400 mt-10">No se encontraron productos con esa búsqueda.</p>';
@@ -47,11 +86,10 @@
                     </div>
                     <div class="mt-4 flex justify-between items-center">
                         <span class="text-2xl font-bold text-green-400">$${p.precio}</span>
-                        <a href="https://wa.me/5492645725220?text=Hola! Quiero info de: ${p.nombre}" 
-                           target="_blank"
-                           class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-green-600 transition">
-                           Consultar
-                        </a>
+                        <button onclick="agregarAlCarrito('${p.nombre}', ${p.precio})" 
+                           class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-500 transition cursor-pointer shadow-lg">
+                           + Sumar
+                        </button>
                     </div>
                 </div>`;
         });
@@ -60,27 +98,22 @@
     // Mostrar todos al cargar la página
     mostrarProductos(productos);
 
-// Función mágica para sacarle los tildes a las palabras
-    function quitarAcentos(texto) {
-        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-
-// Escuchar cuando el usuario escribe
+    // Escuchar cuando el usuario escribe
     inputBuscador.addEventListener('keyup', (e) => {
-        // Obtenemos lo que escribió y le sacamos los acentos
         const textoBusqueda = quitarAcentos(e.target.value.toLowerCase());
         
-        // Filtrar productos que coincidan en nombre o categoría
         const productosFiltrados = productos.filter(p => {
             const nombreLimpio = quitarAcentos(p.nombre.toLowerCase());
             const categoriaLimpia = quitarAcentos(p.categoria.toLowerCase());
             
             return nombreLimpio.includes(textoBusqueda) || 
                    categoriaLimpia.includes(textoBusqueda);
-        }); // <--- ¡ESTE ERA EL CIERRE QUE FALTABA!
+        });
         
         mostrarProductos(productosFiltrados);
     });
-</script>
+</script><a id="btn-carrito" href="#" target="_blank" class="hidden fixed bottom-6 right-6 bg-green-500 text-white px-6 py-4 rounded-full shadow-xl hover:bg-green-600 transition transform hover:scale-105 z-50 font-bold text-lg flex items-center gap-2">
+        🛒 Enviar Pedido
+    </a>
 </body>
 </html>
