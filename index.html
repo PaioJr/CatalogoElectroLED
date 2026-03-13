@@ -26,10 +26,10 @@
         <button onclick="filtrarCategoria('Iluminación')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Iluminación</button>
         <button onclick="filtrarCategoria('Cintas y Neón')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Cintas y Neón</button>
         <button onclick="filtrarCategoria('Domótica')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Domótica</button>
-        <button onclick="filtrarCategoria('Seguridad Electrónica')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Seguridad Electrónica</button>
+        <button onclick="filtrarCategoria('Seguridad')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Seguridad</button>
         <button onclick="filtrarCategoria('Cartelería')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Cartelería</button>
+        <button onclick="filtrarCategoria('Electrónica')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Electrónica</button>
         <button onclick="filtrarCategoria('Instalaciones')" class="bg-green-700 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-green-500 shadow-sm">Instalaciones</button>
-        <button onclick="filtrarCategoria('Accesorios')" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors border border-slate-600 shadow-sm">Accesorios</button>
     </div>
 
     <div id="catalogo" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -50,9 +50,8 @@
             return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
-        // Lógica de Filtrado por Categoría
         function filtrarCategoria(cat) {
-            inputBuscador.value = ""; // Limpiamos buscador
+            inputBuscador.value = ""; 
             if (cat === 'Todas') {
                 mostrarProductos(productos);
             } else {
@@ -116,10 +115,8 @@
             });
         }
 
-        // Carga inicial
         mostrarProductos(productos);
 
-        // Buscador en tiempo real
         inputBuscador.addEventListener('keyup', (e) => {
             const textoBusqueda = quitarAcentos(e.target.value.toLowerCase());
             const filtrados = productos.filter(p => {
