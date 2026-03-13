@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -22,26 +23,20 @@ class="mx-auto mb-4" style="height:180px">
 
 </header>
 
-
 <div class="max-w-6xl mx-auto mb-6">
 <input id="buscador" type="text" placeholder="Buscar producto..."
 class="w-full p-4 rounded-lg text-black">
 </div>
 
-
 <div id="catalogo" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
-
 
 <a id="btn-carrito"
 class="hidden fixed bottom-6 right-6 bg-green-500 px-6 py-4 rounded-full shadow-xl font-bold">
-🛒 Enviar Pedido
-</a>
-
+🛒 Enviar Pedido </a>
 
 <div id="modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center">
 <img id="modal-img" class="max-h-[80%] rounded-xl">
 </div>
-
 
 <script src="productos.js"></script>
 
@@ -54,21 +49,17 @@ const modalImg=document.getElementById("modal-img")
 
 let carrito=[]
 
-
 function etiquetaProducto(nombre){
 
 nombre=nombre.toLowerCase()
 
 if(nombre.includes("rgb")) return "RGB"
-
 if(nombre.includes("kit")) return "KIT"
-
 if(nombre.includes("neon")) return "COLOR"
 
 return ""
 
 }
-
 
 function mostrarProductos(lista){
 
@@ -81,4 +72,101 @@ const tag=etiquetaProducto(p.nombre)
 catalogo.innerHTML+=`
 
 <div class="bg-gray-800 rounded-xl p-4 shadow-lg hover:scale-105 transition">
+
+<img src="${p.imagen}" 
+class="w-full h-64 object-contain bg-white rounded cursor-pointer"
+onclick="verImagen('${p.imagen}')">
+
+<div class="mt-4">
+
+${tag?`<span class="bg-purple-600 text-xs px-2 py-1 rounded">${tag}</span>`:""}
+
+<h2 class="text-xl font-bold mt-2">${p.nombre}</h2>
+
+<p class="text-gray-400 text-sm">${p.descripcion||""}</p>
+
+</div>
+
+<div class="flex justify-between items-center mt-4">
+
+<span class="text-green-400 font-bold text-2xl">$${p.precio}</span>
+
+<button onclick="agregar('${p.nombre}',${p.precio})"
+class="bg-blue-600 px-4 py-2 rounded-full">
+
++ Sumar
+
+</button>
+
+</div>
+
+</div>
+
+`
+
+})
+
+}
+
+function verImagen(src){
+
+modal.classList.remove("hidden")
+modalImg.src=src
+
+}
+
+modal.onclick=()=>modal.classList.add("hidden")
+
+function agregar(nombre,precio){
+
+carrito.push({nombre,precio})
+
+actualizarCarrito()
+
+}
+
+function actualizarCarrito(){
+
+const btn=document.getElementById("btn-carrito")
+
+let total=0
+let mensaje="Hola! Quiero pedir:%0A%0A"
+
+carrito.forEach(p=>{
+
+mensaje+=`- ${p.nombre} $${p.precio}%0A`
+total+=p.precio
+
+})
+
+mensaje+=`%0ATotal: $${total}`
+
+btn.href=`https://wa.me/5492645725220?text=${mensaje}`
+
+btn.innerHTML=`🛒 Pedido (${carrito.length}) - $${total}`
+
+btn.classList.remove("hidden")
+
+}
+
+buscador.addEventListener("keyup",e=>{
+
+const texto=e.target.value.toLowerCase()
+
+const filtrados=productos.filter(p=>
+
+p.nombre.toLowerCase().includes(texto) ||
+(p.descripcion||"").toLowerCase().includes(texto)
+
+)
+
+mostrarProductos(filtrados)
+
+})
+
+mostrarProductos(productos)
+
+</script>
+
+</body>
 </html>
