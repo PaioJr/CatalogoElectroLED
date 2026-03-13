@@ -15,32 +15,72 @@
          class="mb-4 object-contain mx-auto">
     <p class="text-gray-300 font-semibold text-lg">Domótica e Iluminación - San Juan</p>
 </header>
-
+<div class="max-w-6xl mx-auto mb-6">
+        <input type="text" id="buscador" placeholder="Buscar productos (ej. Reflector, Neón, 12V)..." 
+               class="w-full p-4 rounded-lg shadow-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-black">
+    </div>
     <div id="catalogo" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
         </div>
 
-    <script src="productos.js"></script>
-    <script>
-        const contenedor = document.getElementById('catalogo');
-        productos.forEach(p => {
+<script src="productos.js"></script>
+<script>
+    const contenedor = document.getElementById('catalogo');
+    const inputBuscador = document.getElementById('buscador');
+
+    // Función para dibujar los productos
+    function mostrarProductos(lista) {
+        contenedor.innerHTML = ''; // Limpiar antes de mostrar
+        
+        if(lista.length === 0) {
+            contenedor.innerHTML = '<p class="text-center col-span-3 text-gray-400 mt-10">No se encontraron productos con esa búsqueda.</p>';
+            return;
+        }
+
+        lista.forEach(p => {
             contenedor.innerHTML += `
-                <div class="bg-white rounded-lg shadow-md overflow-hidden p-4 border-b-4 border-blue-500">
+                <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden p-4 border-b-4 border-blue-500">
                     <img src="${p.imagen}" class="w-full h-48 object-cover rounded bg-gray-200" alt="${p.nombre}">
                     <div class="mt-2">
                         <span class="text-xs font-bold text-blue-500 uppercase">${p.categoria}</span>
-                        <h2 class="text-xl font-bold">${p.nombre}</h2>
-                        <p class="text-gray-500 text-sm mt-1">${p.descripcion}</p>
+                        <h2 class="text-xl font-bold text-white">${p.nombre}</h2>
+                        <p class="text-gray-300 text-sm mt-1">${p.descripcion}</p>
                     </div>
                     <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold text-green-600">$${p.precio}</span>
+                        <span class="text-2xl font-bold text-green-400">$${p.precio}</span>
                         <a href="https://wa.me/5492645725220?text=Hola! Quiero info de: ${p.nombre}" 
                            target="_blank"
-                           class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-green-600">
+                           class="bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-green-600 transition">
                            Consultar
                         </a>
                     </div>
                 </div>`;
         });
-    </script>
+    }
+
+    // Mostrar todos al cargar la página
+    mostrarProductos(productos);
+
+// Función mágica para sacarle los tildes a las palabras
+    function quitarAcentos(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+// Escuchar cuando el usuario escribe
+    inputBuscador.addEventListener('keyup', (e) => {
+        // Obtenemos lo que escribió y le sacamos los acentos
+        const textoBusqueda = quitarAcentos(e.target.value.toLowerCase());
+        
+        // Filtrar productos que coincidan en nombre o categoría
+        const productosFiltrados = productos.filter(p => {
+            const nombreLimpio = quitarAcentos(p.nombre.toLowerCase());
+            const categoriaLimpia = quitarAcentos(p.categoria.toLowerCase());
+            
+            return nombreLimpio.includes(textoBusqueda) || 
+                   categoriaLimpia.includes(textoBusqueda);
+        }); // <--- ¡ESTE ERA EL CIERRE QUE FALTABA!
+        
+        mostrarProductos(productosFiltrados);
+    });
+</script>
 </body>
 </html>
