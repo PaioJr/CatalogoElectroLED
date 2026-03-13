@@ -56,9 +56,9 @@ const productos = [
         descripcion: "Neón multicolor con efectos dinámicos."
     },
     {
-        nombre: "Tira 5050 Interior Cálida x 5mts",
+        nombre: "Tira 5050 Interior Blanco Cálida x 5mts",
         categoria: "Cintas y Neón",
-        precio: 8900,
+        precio: 14000,
         imagen: "https://i.postimg.cc/gJv98K0W/D-NQ-NP-2X-852449-MLA90942364305-082025-F.webp",
         descripcion: "Tira LED de alto brillo. Fraccionable cada 5 cm."
     },
@@ -66,7 +66,7 @@ const productos = [
         nombre: "Tira led RGB 5050 12v interior 5mts",
         categoria: "Cintas y Neón",
         precio: 18000,
-        imagen: "https://i.postimg.cc/ZYg57zvP/tira.webp",
+        imagen: "https://i.postimg.cc/0y4X2HsN/Chat-GPT-Image-13-mar-2026-06-14-30-p-m.png",
         descripcion: "Iluminación multicolor de alta calidad para interiores."
     },
     {
