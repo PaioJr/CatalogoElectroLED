@@ -10,29 +10,25 @@ const productos = [
         nombre: "Módulo Smart Switch Wifi",
         categoria: "Domótica",
         precio: "17000",
-        imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?w=500",
-        descripcion: "Convertí cualquier tecla en inteligente. Control por App y voz."
+        imagen: "https://i.postimg.cc/wjMN7ybs/904336441699da80ecdf9d4-43049716-36c3f002e6215bfd2617731817580192-1024-1024.webp"
     },
     {
         nombre: "Lámpara Dicroica LED 7W",
         categoria: "Iluminación",
         precio: "3000",
-        imagen: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=500",
-        descripcion: "Bajo consumo, alta luminosidad. Fría o Cálida."
+        imagen: "https://i.postimg.cc/QddQ1nVj/79325865268e032b91da5c9-71455258-c29897bc24c4fadfab17734100975129-1024-1024.webp"
     },
 {
         nombre: "Reflector LED 50W Exterior",
         categoria: "Iluminación",
         precio: "14500",
-        imagen: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?w=500", 
-        descripcion: "Alta potencia y bajo consumo. Resistente al agua (IP65), ideal para patios o cocheras."
+        imagen: "https://i.postimg.cc/Hx9nSdh7/28500389268e00224e551a9-64826147-dfe610496d3f25afa917733700962966-1024-1024.webp"
     },
     {
         nombre: "Sensor de Movimiento 360°",
         categoria: "Domótica",
         precio: "6200",
-        imagen: "https://images.unsplash.com/photo-1558002038-1055907df827?w=500",
-        descripcion: "Ahorrá energía automatizando el encendido de luces en pasillos y garages."
+        imagen: "https://i.postimg.cc/KYn8zmF7/sensor1.webp"
     },
     {
         nombre: "Lámpara Inteligente RGB + CCT",
@@ -52,8 +48,7 @@ const productos = [
         nombre: "Timbre Inteligente con Cámara",
         categoria: "Domótica",
         precio: "32000",
-        imagen: "https://images.unsplash.com/photo-1563124810-62ece7727170?w=500",
-        descripcion: "Mirá quién toca la puerta desde tu celular, estés donde estés. Audio bidireccional."
+        imagen: "https://i.postimg.cc/sg5Rsvf5/191651422368d1e570614699-81010179-4b1c9c7720e1c9008017734073846934-1024-1024.webp"
     },
     {
         nombre: "Fuente de Alimentación 12V 5A",
@@ -107,7 +102,7 @@ const productos = [
         nombre: "Sensor Smart WiFi Magnetico",
         categoria: "Domótica",
         descripcion: "Eficaz sistema de monitoreo, con un diseño mini y elegante que podés colocar en puertas o ventanas. Se conecta a tu red Wi-Fi 2.4GHz y envía una notificación automática a tu smartphone cada vez que se produce una apertura o cierre. Olvidate de costosos sistemas de alarma; con este sensor y la app Smart Life, vas a mantenerte informado en todo momento, sabiendo quién entra o sale de tu casa.",
-        precio: 15000,
+        precio: 15150,
         imagen: "https://i.postimg.cc/sDZyXnDG/23732661169affa917a55b7-50518846-a7af8e257a5b11b04a17734068674640-1024-1024.webp"
     },
 {
@@ -121,28 +116,28 @@ const productos = [
         nombre: "Controladora Smart Music WiFi ",
         categoria: "Domótica",
         descripcion: "Este módulo de 12 V te permite sincronizar los colores al ritmo de la música gracias a su micrófono integrado, y controlarlo todo por voz (Alexa/Google Home) o desde la App Smart Life. Soporta hasta 48 W de potencia y ofrece control remoto IR para máxima comodidad.",
-        precio: 15000,
+        precio: 18900,
         imagen: "https://i.postimg.cc/kMswS9GH/40900295268eff6b20be5c0-60621010-9205bb3680d9290f7817734096961072-1024-1024.webp"
     },
 {
         nombre: "Cámara Smart WIFI de Interior HD 1080P, IP33",
         categoria: "Domótica",
         descripcion: "Graba en Full HD 1080P (1920x1080), ofrece un ángulo de visión de 360∘ y es compatible con la App Smart Life para alertas de movimiento/sonido. Incluye audio bidireccional para comunicarte y visión nocturna automática, ideal para interiores.",
-        precio: 15000,
+        precio: 40900,
         imagen: "https://i.postimg.cc/4yYKnzmk/181371257468f00476bc6be1-83953344-94405615611040a20317734108510041-1024-1024.webp"
     },
 {
         nombre: "Cerradura Biométrica Smart WIFI de Vidrio Templado con Cámara",
         categoria: "Domótica",
         descripcion: "La cerradura inteligente combina funcionalidad avanzada, seguridad y un diseño moderno para puertas de vidrio templado, madera o UPVC. Este dispositivo incorpora múltiples métodos de desbloqueo y opciones de gestión inteligente para satisfacer las necesidades de hogares, oficinas y hoteles.",
-        precio: 15000,
+        precio: 160000,
         imagen: "https://i.postimg.cc/tgrWTR2D/106837583068e0d43a2d8346-51399007-63ea19aa4a020b5ce217734110937818-1024-1024.webp"
     },
 {
         nombre: "Detector de Humo",
         categoria: "Domótica",
         descripcion: "Protege tu hogar con el Sensor de Humo Fotoeléctrico WiFi Inteligente de Demasled. Este sensor detecta en tiempo real la presencia de humo y te alerta inmediatamente de posibles peligros de incendio. Cuando se detecta humo, el LED rojo del sensor se ilumina y emite una alarma sonora, avisándote a ti y a tu familia con suficiente antelación.",
-        precio: 15000,
+        precio: 23735,
         imagen: "https://i.postimg.cc/cJcTcNTn/52710790168e733860d78f8-30030184-5ce18bd39f30a2219117734155613137-1024-1024.webp"
     },
 {
